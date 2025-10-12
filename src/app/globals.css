@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* 🎨 Palette de couleurs GMZ Services */
+:root {
+  --background: #ffffff; /* Blanc principal */
+  --foreground: #545454; /* Gris du logo et du texte */
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-roboto-condensed: 'Roboto Condensed', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🧍 Styles globaux */
+body {
+  background: var(--background);
+  font-family: var(--font-roboto-condensed);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-montserrat);
+}
+
+a {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
