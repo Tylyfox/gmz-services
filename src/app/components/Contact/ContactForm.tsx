@@ -6,10 +6,19 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { validateField } from "./helpers";
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "");
+  // 🔐 On récupère l'ID Formspree via variable d'environnement
+  const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+  // ⚠️ Sécurité : empêche le crash du build s'il manque la variable
+  const [state, handleSubmit] = useForm(formId || "dummy-id");
+
   const [values, setValues] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
-  const [touched, setTouched] = useState({ name: false, email: false, message: false });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
   const [botField, setBotField] = useState("");
 
   // 🚀 Redirection après succès
@@ -19,13 +28,17 @@ export default function ContactForm() {
     }
   }, [state.succeeded]);
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setTouched({ ...touched, [name]: true });
     setErrors({ ...errors, [name]: validateField(name, value) });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
     if (touched[name as keyof typeof touched]) {
@@ -40,6 +53,16 @@ export default function ContactForm() {
     values.email.trim() &&
     values.message.trim();
 
+  // 🧩 Si pas de clé → message d’avertissement (évite crash du build)
+  if (!formId) {
+    return (
+      <div className="p-6 bg-yellow-50 border border-yellow-200 rounded-lg text-yellow-800 text-center">
+        ⚠️ Le formulaire est temporairement indisponible.  
+        L’identifiant Formspree n’est pas configuré.
+      </div>
+    );
+  }
+
   return (
     <form
       onSubmit={(e) => {
@@ -53,7 +76,8 @@ export default function ContactForm() {
           message: validateField("message", data.get("message") as string),
         };
         setErrors(formErrors);
-        if (!Object.values(formErrors).some((err) => err !== "")) handleSubmit(e);
+        if (!Object.values(formErrors).some((err) => err !== ""))
+          handleSubmit(e);
       }}
       className="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 p-8 text-left space-y-6"
     >
@@ -70,7 +94,10 @@ export default function ContactForm() {
 
       {/* NOM */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Nom complet
         </label>
         <input
@@ -87,12 +114,17 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
-        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+        {errors.name && (
+          <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+        )}
       </div>
 
       {/* EMAIL */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Adresse e-mail
         </label>
         <input
@@ -109,12 +141,17 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
-        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+        {errors.email && (
+          <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+        )}
       </div>
 
       {/* MESSAGE */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           Message
         </label>
         <textarea
@@ -132,7 +169,9 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
-        {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+        {errors.message && (
+          <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+        )}
       </div>
 
       {/* BOUTON */}
@@ -152,7 +191,9 @@ export default function ContactForm() {
             Envoyer le message
             <SendRoundedIcon
               className={`transition-all duration-300 ${
-                isValid ? "opacity-100 translate-x-0" : "opacity-0 translate-x-1"
+                isValid
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-1"
               }`}
               sx={{ fontSize: 20 }}
             />
