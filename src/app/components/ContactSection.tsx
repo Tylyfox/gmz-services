@@ -42,7 +42,7 @@ export default function ContactSection() {
             <ul className="space-y-4 text-gray-600">
               <li className="flex items-center gap-3">
                 <Phone sx={{ color: "#545454" }} />
-                <span>06 12 34 56 78</span>
+                <span>07 67 58 64 07</span>
               </li>
               <li className="flex items-center gap-3">
                 <Email sx={{ color: "#545454" }} />

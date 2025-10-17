@@ -24,7 +24,7 @@ export default function MentionsLegales() {
         <br />
         Email : gmz.services@gmail.com
         <br />
-        Téléphone : 06 12 34 56 78
+        Téléphone : 07 67 58 64 07
       </p>
 
       {/* 2. Hébergement */}
