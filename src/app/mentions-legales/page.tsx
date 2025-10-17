@@ -1,65 +1,52 @@
-export default function MentionsLegales() {
+export default function PolitiqueConfidentialite() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-20 text-gray-700 leading-relaxed">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
-        Mentions légales
+        Politique de confidentialité
       </h1>
 
       <p>
-        Conformément aux dispositions des articles 6-III et 19 de la Loi pour la
-        Confiance dans l’Économie Numérique (LCEN), nous vous informons des
-        éléments suivants :
+        Cette politique de confidentialité décrit la manière dont{" "}
+        <strong>GMZ Services</strong> collecte, utilise et protège les données
+        personnelles recueillies via ce site.
       </p>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">1. Éditeur du site</h2>
+      <h2 className="text-xl font-semibold mt-8 mb-2">1. Données collectées</h2>
       <p>
-        <strong>GMZ Services</strong>  
-        <br />
-        Statut : [Auto-entrepreneur / SASU / autre]  
-        <br />
-        Adresse : [Adresse complète]  
-        <br />
-        SIRET : [Numéro SIRET]  
-        <br />
-        Responsable de publication : [Nom complet]  
-        <br />
-        Email : gmz.services@gmail.com  
-        <br />
-        Téléphone : 06 12 34 56 78
-      </p>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">2. Hébergement</h2>
-      <p>
-        Hébergeur : [Nom de l’hébergeur]  
-        <br />
-        Adresse : [Adresse de l’hébergeur]  
-        <br />
-        Site web : [URL du site de l’hébergeur]
-      </p>
-
-      <h2 className="text-xl font-semibold mt-8 mb-2">3. Propriété intellectuelle</h2>
-      <p>
-        L’ensemble du contenu de ce site (textes, images, logos, graphismes,
-        etc.) est la propriété exclusive de GMZ Services, sauf mention contraire.
-        Toute reproduction, distribution ou utilisation sans autorisation
-        préalable est interdite.
+        Seules les informations que vous fournissez via le formulaire de contact
+        sont collectées (nom, adresse e-mail et message). Ces données sont
+        utilisées uniquement pour répondre à vos demandes.
       </p>
 
       <h2 className="text-xl font-semibold mt-8 mb-2">
-        4. Limitation de responsabilité
+        2. Conservation des données
       </h2>
       <p>
-        GMZ Services s’efforce d’assurer la fiabilité des informations présentes
-        sur le site. Toutefois, aucune garantie n’est donnée quant à leur
-        exactitude ou leur mise à jour.
+        Vos données ne sont conservées que le temps nécessaire au traitement de
+        votre demande, puis supprimées au bout de 12 mois maximum.
       </p>
 
-      <h2 className="text-xl font-semibold mt-8 mb-2">5. Données personnelles</h2>
+      <h2 className="text-xl font-semibold mt-8 mb-2">
+        3. Partage des données
+      </h2>
       <p>
-        Les informations recueillies via le formulaire de contact sont
-        enregistrées uniquement pour répondre à vos demandes.  
-        Vous disposez d’un droit d’accès, de rectification et de suppression de
-        vos données, que vous pouvez exercer en écrivant à :{" "}
+        GMZ Services ne partage aucune donnée personnelle avec des tiers, sauf
+        obligation légale.
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-2">
+        4. Sécurité des données
+      </h2>
+      <p>
+        Des mesures techniques sont mises en œuvre pour protéger vos
+        informations contre tout accès non autorisé. Les données sont hébergées
+        sur les serveurs sécurisés de Vercel.
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-2">5. Vos droits</h2>
+      <p>
+        Vous pouvez demander à tout moment l’accès, la rectification ou la
+        suppression de vos données personnelles en écrivant à :{" "}
         <a
           href="mailto:gmz.services@gmail.com"
           className="text-[#545454] underline"
@@ -67,6 +54,10 @@ export default function MentionsLegales() {
           gmz.services@gmail.com
         </a>
         .
+      </p>
+
+      <p className="text-sm text-gray-500 mt-10">
+        Dernière mise à jour : octobre {new Date().getFullYear()}
       </p>
     </main>
   );

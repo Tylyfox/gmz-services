@@ -99,7 +99,7 @@ export default function ServicesPage() {
 
         <div className="text-center mt-16">
           <Link
-            href="#contact"
+            href="/#contact"
             scroll
             className="inline-block bg-[#545454] text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-[#333] transition"
           >

@@ -63,7 +63,7 @@ export default function PricingSection() {
                   scroll={true}
                   className="inline-block bg-[#545454] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-[#333] transition"
                 >
-                  Demander un devis
+                  Demander des informations
                 </Link>
                 <Link
                   href="/tarifs"

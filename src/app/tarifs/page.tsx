@@ -94,7 +94,7 @@ export default function TarifsPage() {
 
               <div className="text-center mt-8">
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   scroll
                   className="inline-block bg-[#545454] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-[#333] transition"
                 >
